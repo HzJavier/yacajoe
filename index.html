@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YAcaJoe?</title>
+
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 100px;
+      text-align: center;
+      padding-top: 150px;
+    }
+
+    .container {
+      opacity: 0; 
+      -webkit-transition: opacity 1s ease;
+      -moz-transition: opacity 1s ease;
+      -o-transition: opacity 1s ease;
+      transition: opacity 1s ease;
+    }
+
+    .container.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="message" class="container">
+    Ya 
+  </div>
+
+  <script>
+    window.setTimeout(function () {
+      var el = document.getElementById('message');
+      el.className = el.className + ' visible';
+    }, 500);
+  </script>
+</body>
+</html>
