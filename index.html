@@ -102,7 +102,6 @@
 </head>
 <body>
 
-  <div class="loader"></div>
   <div id="message" class="container">
     No 
   </div>
@@ -115,7 +114,6 @@
       dataType: 'json',
       url: route
     }). done(function (data) {
-      loader.addClass('hidden'); 
       window.setTimeout(function () {
         el.addClass('visible');
         el.html(data.cajoe);
