@@ -24,17 +24,28 @@
       opacity: 1;
     }
   </style>
+
+  <!-- Scripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </head>
 <body>
   <div id="message" class="container">
-    Ya 
+    No 
   </div>
 
   <script>
-    window.setTimeout(function () {
-      var el = document.getElementById('message');
-      el.className = el.className + ' visible';
-    }, 500);
+    var el = $('#message');
+    var route = '';
+    $.ajax({
+      dataType: 'json',
+      url: route
+    }). done(function (data) {
+      window.setTimeout(function () {
+        el.addClass('visible');
+        el.html(data.cajoe);
+      }, 500);
+    });
   </script>
 </body>
 </html>
