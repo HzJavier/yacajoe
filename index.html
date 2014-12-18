@@ -23,6 +23,65 @@
     .container.visible {
       opacity: 1;
     }
+
+
+    .loader:before,
+    .loader:after,
+    .loader {
+      border-radius: 50%;
+      width: 2.5em;
+      height: 2.5em;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation: load7 1.8s infinite ease-in-out;
+      animation: load7 1.8s infinite ease-in-out;
+    }
+    .loader {
+      margin: 8em auto;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      -webkit-animation-delay: 0.16s;
+      animation-delay: 0.16s;
+    }
+    .loader:before {
+      left: -3.5em;
+    }
+    .loader:after {
+      left: 3.5em;
+      -webkit-animation-delay: 0.32s;
+      animation-delay: 0.32s;
+    }
+    .loader:before,
+    .loader:after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+    @-webkit-keyframes load7 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em #000;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0 #FFF;
+      }
+    }
+    @keyframes load7 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em #ffffff;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0 #FFF;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
   </style>
 
   <!-- Scripts -->
@@ -30,17 +89,21 @@
 
 </head>
 <body>
+
+  <div class="loader"></div>
   <div id="message" class="container">
     No 
   </div>
 
   <script>
     var el = $('#message');
-    var route = '';
+    var loader = $('.loader');
+    var route = 'http://localhost:4567';
     $.ajax({
       dataType: 'json',
       url: route
     }). done(function (data) {
+      loader.addClass('hidden'); 
       window.setTimeout(function () {
         el.addClass('visible');
         el.html(data.cajoe);
