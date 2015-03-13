@@ -82,6 +82,10 @@
     .hidden {
       display: none;
     }
+
+    #video-player {
+      margin-top: 20px;
+    }
   </style>
 
   <!-- Scripts -->
@@ -106,8 +110,13 @@
     No 
   </div>
 
+  <div id="video-player">
+    
+  </div>
+
   <script>
     var el = $('#message');
+    var videoPlayer = $('#video-player');
     var loader = $('.loader');
     var route = 'http://localhost:4567';
     $.ajax({
@@ -117,8 +126,13 @@
       window.setTimeout(function () {
         el.addClass('visible');
         el.html(data.cajoe);
+        
+        if (data.videoSrc !== '') {
+          videoPlayer.append('<iframe width="420" height="315" src="https://www.youtube.com/embed/' + data.videoSrc + '" frameborder="0" allowfullscreen></iframe>');
+        }
       }, 500);
     });
   </script>
+
 </body>
 </html>
