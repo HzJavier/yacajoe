@@ -18,4 +18,6 @@ post '/cajoe' do
     halt 368, "Oye... tranquilo viejo!"
   end
   $cayo['cajoe'] = cayo['cajoe']
+  $cayo['videoSrc'] = cayo['video']
+  "Success"
 end
