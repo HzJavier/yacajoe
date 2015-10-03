@@ -1,0 +1,215 @@
+body {
+  background: #fff;
+  background: url(/img/money.jpg) no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+.overlay {
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 0.8;
+}
+
+strong { font-weight: 700; }
+
+a, a:hover, a:focus {
+  color: #961A30;
+  text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+img { max-width: 100%; }
+
+::-moz-selection { background: #961A30; color: #fff; text-shadow: none; }
+::selection { background: #961A30; color: #fff; text-shadow: none; }
+
+nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 998;
+  background: #3d3d3d;
+  font-size: 18px;
+  color: #fff;
+    line-height: 32px;
+    text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px 0;
+  color: #fff;
+}
+nav a:hover { color: #961A30; }
+nav a:focus { color: #961A30; }
+
+.show-menu, .hide-menu {
+  position: absolute;
+  top: -6px;
+  right: 100px;
+  padding: 0 20px;
+  z-index: 999;
+  text-align: center;
+}
+.hide-menu { top: -1px; }
+
+.show-menu a, .hide-menu a {
+  display: inline-block;
+  width: 46px;
+  height: 48px;
+  padding-top: 11px;
+  background: #3d3d3d;
+  font-size: 21px;
+  color: #fff;
+  -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+.show-menu a:hover, .hide-menu a:hover { color: #fff; }
+
+.coming-soon {
+    margin: 0 auto;
+    color: #fff;
+}
+
+.inner-bg {
+    padding: 75px 0 40px 0;
+}
+
+.coming-soon .logo {
+  padding-bottom: 20px;
+}
+
+.coming-soon .logo h1 {
+  margin: 0;
+}
+
+.coming-soon .logo a {
+  display: inline-block;
+  width: 113px;
+  height: 110px;
+  background: url(../img/logo.png) center center no-repeat;
+  text-indent: -99999px;
+}
+.coming-soon .logo a:focus { outline: 0; }
+
+.coming-soon .logo a:before {
+  content: url(../img/logo-hover.png);
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.coming-soon .logo a:hover { background-image: url(../img/logo-hover.png); }
+
+.coming-soon h2 {
+    font-size: 46px;
+    font-weight: 100;
+}
+
+.coming-soon p {
+  margin: 40px 0 10px 0;
+  padding: 0 320px;
+    font-size: 22px;
+    line-height: 36px;
+}
+
+.timer {
+    margin-top: 60px;
+}
+
+.timer .days-wrapper,
+.timer .hours-wrapper,
+.timer .minutes-wrapper,
+.timer .seconds-wrapper {
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    margin: 0 10px;
+    padding-top: 20px;
+    border: 1px solid #fff;
+    font-size: 18px;
+    -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
+    cursor: pointer;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.timer .days-wrapper:hover,
+.timer .hours-wrapper:hover,
+.timer .minutes-wrapper:hover,
+.timer .seconds-wrapper:hover {
+    background: #961A30;
+    border: 1px solid #961A30;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.timer .days,
+.timer .hours,
+.timer .minutes,
+.timer .seconds {
+    font-size: 80px;
+    font-weight: 100;
+    line-height: 90px;
+}
+
+.coming-soon p.top-arrow {
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+.coming-soon p.top-arrow i {
+  position: relative;
+  width: 100px;
+  height: 37px;
+  overflow: hidden;
+}
+
+.coming-soon p.top-arrow i:before {
+  position: absolute;
+  top: 0;
+  left: 33.5px;
+}
+
+.coming-soon p.top-arrow i:after {
+  content: "scroll down";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.coming-soon p.top-arrow i:before,
+.coming-soon p.top-arrow i:after {
+  -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.coming-soon p.top-arrow i:hover:before { top: 40px; }
+.coming-soon p.top-arrow i:hover:after { top: 10px; }
+
+footer {
+  padding: 20px 0 16px 0;
+  background: #3d3d3d;
+  text-align: left;
+}
+
+.footer-copyright p {
+  margin: 0;
+  font-size: 18px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.footer-copyright a { color: #fff; border-bottom: 1px dotted #fff; }
+.footer-copyright a:hover { color: #fff; border: 0; }
+
+.footer-social {
+  text-align: right;
+}
