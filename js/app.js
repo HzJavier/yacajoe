@@ -6,7 +6,7 @@ $(function() {
     var message = $('#message');
     var videoPlayer = $('#video-player');
     var loader = $('.loader');
-    var route = 'http://yacajoe.com:4567';
+    var route = 'http://localhost:4567';
 
     if(pay.getDate() > 15) {
       tmpDate = new Date(pay.getYear() + 1900, pay.getMonth() + 1, 0, 9);
