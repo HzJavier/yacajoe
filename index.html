@@ -2,91 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,700,700italic">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/theme.css">
   <title>YAcaJoe?</title>
 
-  <style>
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 100px;
-      text-align: center;
-      padding-top: 150px;
-    }
-
-    .container {
-      opacity: 0; 
-      -webkit-transition: opacity 1s ease;
-      -moz-transition: opacity 1s ease;
-      -o-transition: opacity 1s ease;
-      transition: opacity 1s ease;
-    }
-
-    .container.visible {
-      opacity: 1;
-    }
-
-
-    .loader:before,
-    .loader:after,
-    .loader {
-      border-radius: 50%;
-      width: 2.5em;
-      height: 2.5em;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-      -webkit-animation: load7 1.8s infinite ease-in-out;
-      animation: load7 1.8s infinite ease-in-out;
-    }
-    .loader {
-      margin: 8em auto;
-      font-size: 10px;
-      position: relative;
-      text-indent: -9999em;
-      -webkit-animation-delay: 0.16s;
-      animation-delay: 0.16s;
-    }
-    .loader:before {
-      left: -3.5em;
-    }
-    .loader:after {
-      left: 3.5em;
-      -webkit-animation-delay: 0.32s;
-      animation-delay: 0.32s;
-    }
-    .loader:before,
-    .loader:after {
-      content: '';
-      position: absolute;
-      top: 0;
-    }
-    @-webkit-keyframes load7 {
-      0%,
-      80%,
-      100% {
-        box-shadow: 0 2.5em 0 -1.3em #000;
-      }
-      40% {
-        box-shadow: 0 2.5em 0 0 #FFF;
-      }
-    }
-    @keyframes load7 {
-      0%,
-      80%,
-      100% {
-        box-shadow: 0 2.5em 0 -1.3em #ffffff;
-      }
-      40% {
-        box-shadow: 0 2.5em 0 0 #FFF;
-      }
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
-
-  <!-- Scripts -->
+    <!-- Scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  
+
   <!-- Analytics -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -101,24 +25,29 @@
 
 </head>
 <body>
-
-  <div id="message" class="container">
-    No 
+  <!-- Coming Soon -->
+  <div class="coming-soon">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 id="message">Yacajoe!</h1>
+                    <p id="legend">
+                      Tiempo restante para el próximo pago:
+                    </p>
+                    <div id="video-player"></div>
+                    <div class="timer" id="timer">
+                        <div class="wrapper">
+                            <span class="circle" id="days"></span> <br>días
+                        </div>
+                        <div class="wrapper">
+                            <span class="circle" id="hours"></span> <br>horas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
-
-  <script>
-    var el = $('#message');
-    var loader = $('.loader');
-    var route = 'http://localhost:4567';
-    $.ajax({
-      dataType: 'json',
-      url: route
-    }). done(function (data) {
-      window.setTimeout(function () {
-        el.addClass('visible');
-        el.html(data.cajoe);
-      }, 500);
-    });
-  </script>
 </body>
 </html>
