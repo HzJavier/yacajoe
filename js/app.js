@@ -6,7 +6,7 @@ $(function() {
     var message = $('#message');
     var videoPlayer = $('#video-player');
     var loader = $('.loader');
-    var route = 'http://localhost:4567';
+    var route = 'http://yacajoe.com:4567';
 
     if(pay.getDate() > 15) {
       tmpDate = new Date(pay.getYear() + 1900, pay.getMonth() + 1, 0, 9);
@@ -23,26 +23,25 @@ $(function() {
     	$(this).find('#days').text(event.offset.totalDays);
     	$(this).find('#hours').text(event.offset.hours);
     });
-
-    if(cajoe){
-      $('#timer').hide();
-      $('#legend').hide();
-      $.ajax({
-        dataType: 'json',
-        url: route
-      }).done(function (data) {
-        window.setTimeout(function () {
-          message.addClass('visible');
+    $.ajax({
+      dataType: 'json',
+      url: route
+    }).done(function (data) {
+      window.setTimeout(function () {
+        message.addClass('visible');
+        if(cajoe){
+          $('#timer').hide();
+          $('#legend').hide();
           if(data.cajoe == 'No') {
             message.html('Verificando...');
           } else {
             message.html(data.cajoe);
           }
-          if (data.videoSrc !== '') {
-            videoPlayer.append('<iframe width="420" height="315" src="https://www.youtube.com/embed/' + data.videoSrc + '" frameborder="0" allowfullscreen></iframe>');
-          }
-        }, 500);
-      });
-    }
+        }
+        if (data.videoSrc !== '') {
+          videoPlayer.append('<iframe width="420" height="315" src="https://www.youtube.com/embed/' + data.videoSrc + '" frameborder="0" allowfullscreen></iframe>');
+        }
+      }, 500);
+    });
 });
 
