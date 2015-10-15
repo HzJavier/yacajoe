@@ -3,10 +3,15 @@ $(function() {
     var pay = new Date();
     var cajoe = false;
     var tmpDate;
+    var user = 'Joe' + (Math.floor(Math.random()  * 99 + 1));
     var message = $('#message');
     var videoPlayer = $('#video-player');
     var loader = $('.loader');
     var route = 'http://yacajoe.com:4567';
+    var chat = $('.chat-scroll');
+    var socket = io('http://0.0.0.0:3000');
+    var input = $('.chat-input');
+    var chatOpen = true;
 
     if(pay.getDate() > 15) {
       tmpDate = new Date(pay.getYear() + 1900, pay.getMonth() + 1, 0, 9);
@@ -43,5 +48,38 @@ $(function() {
         }
       }, 500);
     });
+    socket.on('broadcast', function(from, msg){
+        chat.append(formatMessage(from, msg));
+    });
+
+    $('.open-chat').on('click', function() {
+      var chatPanel = $('.chat-panel');
+      if(chatOpen) {
+        $('.open-chat').removeClass('glyphicon-triangle-right').addClass('glyphicon-triangle-left');
+        $('.chat').addClass('chat-close');
+        $('.inner-bg').removeClass('full-panel');
+        chatPanel.hide();
+      } else {
+        $('.open-chat').removeClass('glyphicon-triangle-left').addClass('glyphicon-triangle-right');
+        $('.chat').removeClass('chat-close');
+        $('.inner-bg').addClass('full-panel');
+        chatPanel.show();
+      }
+      chatOpen = !chatOpen;
+    });
+
+    input.keydown(function(e) {
+      if(e.keyCode == 13) {
+        sendMessage(input.val());
+        input.val('');
+      }
+    });
+
+    function sendMessage(msg) {
+      socket.emit('message', user, msg);
+    }
+    function formatMessage(from, msg) {
+      return "<div class='chat-line'><span class='chat-user'>" + from + ":</span>" + msg + "</div>";
+    }
 });
 

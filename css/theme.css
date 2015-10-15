@@ -2,7 +2,7 @@ body {
   background: #fff;
   background: url(/img/money.jpg) no-repeat;
   background-size: cover;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   text-align: center;
 }
@@ -25,12 +25,15 @@ img {
 
 
 .coming-soon {
-    margin: 0 auto;
-    color: #fff;
+  position: relative;
+  float: left;
+  margin: 0 auto;
+  color: #fff;
+  width: 99%;
 }
 
 .inner-bg {
-    padding: 75px 0 40px 0;
+  padding: 75px 0 40px 0;
 }
 
 .coming-soon .logo {
@@ -64,4 +67,65 @@ img {
 
 #video-player {
   padding-top: 40px;
+}
+
+.chat {
+  top: 0;
+  min-width: 300px;
+  position: absolute;
+  right: 0px;
+  color: white;
+  font-size: 20px;
+  height: 100%;
+}
+
+.open-chat {
+  position: relative;
+  float: left;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+.chat-panel {
+  width: 93%;
+  height: 100%;
+  display: inline-block;
+  background-color: #f2f2f2;
+}
+
+.chat-scroll {
+  height: 90%;
+  padding: 0 15px;
+}
+
+.chat-title {
+  color: black;
+  font-weight: 300;
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.chat-line {
+  text-align: left;
+  font-size: 12px;
+  color: black;
+  padding-top: 15px;
+}
+.chat-user {
+  font-weight: bold;
+  color: red;
+  padding:15px 5px 0 15px;
+}
+
+.chat-input {
+  color: black;
+  width: 96%;
+}
+
+.chat-close {
+  width: 20px;
+}
+
+.full-panel {
+  width: 80%;
 }
