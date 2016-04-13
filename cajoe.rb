@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-$signature = ARGV[0]
+$signature = ENV['SECRET']
 $cayo = {'cajoe'=>'No'}
 before do
   headers['Access-Control-Allow-Methods'] = 'GET, POST'
