@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-$signature = ARGV[0]
+$signature = ENV['SECRET']
 $cayo = {'cajoe'=>'No'}
 before do
   headers['Access-Control-Allow-Methods'] = 'GET, POST'
@@ -12,6 +12,7 @@ end
 get '/' do
   $cayo.to_json
 end
+
 post '/cajoe' do
   cayo = JSON.parse(request.body.read)
   if cayo['sig'] != $signature
@@ -20,4 +21,9 @@ post '/cajoe' do
   $cayo['cajoe'] = cayo['cajoe']
   $cayo['videoSrc'] = cayo['video']
   "Success"
+end
+
+# for FB messenger support
+get '/webhook' do
+  'Webhook tujoe'
 end
